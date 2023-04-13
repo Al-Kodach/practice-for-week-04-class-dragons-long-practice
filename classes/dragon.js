@@ -1,10 +1,30 @@
-// Your code here
+class Dragon {
+  constructor(name, color) {
+    this.name = name;
+    this.color = color;
+  }
 
-/****************************************************************************/
-/******************* DO NOT EDIT CODE BELOW THIS LINE ***********************/
+  breathesFire() {
+    return `${this.name} breathes fire everywhere! BURN!!!!`;
+  }
 
-try {
-  module.exports = Dragon;
-} catch {
-  module.exports = null;
+  static getDragons(...dragons) {
+    let allDragons = [];
+
+    if (arguments.length === 1) {
+      allDragons.push(dragons.name);
+    } else {
+      for (let dragon of dragons) {
+        allDragons.push(dragon.name);
+      }
+    }
+
+    return allDragons;
+  }
 }
+
+const puff = new Dragon("Puff", "green");
+const toothless = new Dragon("Toothless", "black");
+console.log(Dragon.getDragons(puff, toothless));
+
+module.exports = Dragon;
